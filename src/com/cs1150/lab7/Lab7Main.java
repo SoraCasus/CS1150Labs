@@ -8,6 +8,7 @@ public class Lab7Main {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
 
+
 		MyThing o1 = new MyThing();
 		o1.setValue(0);
 		MyThing o2 = new MyThing();

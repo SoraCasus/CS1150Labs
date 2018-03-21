@@ -9,7 +9,7 @@ public class Utils {
 			if (i != arr.length - 1)
 				System.out.print(", ");
 		}
-		System.out.print("]");
+		System.out.print("]\n");
 	}
 
 	public static <T> void printArray(T[] arr) {
@@ -124,6 +124,56 @@ public class Utils {
 		for (int i = 0; i < count; i++)
 			res[i] = a[indices[i]];
 
+		return res;
+	}
+
+	public static int pow(int a, int b) {
+		int tmp;
+		int res;
+		if (b == 0) res = 1;
+		else {
+			tmp = pow(a, b - 1);
+			res = a * tmp;
+		}
+		return res;
+	}
+
+	public static long factorial(int n) {
+		long res = 1;
+		if (n == 0) return 1;
+		else return n * factorial(n - 1);
+	}
+
+	public static long fibonacci(int n) {
+		if (n == 0 || n == 1) return 1;
+		else return fibonacci(n - 1) + fibonacci(n - 2);
+	}
+
+	public static String reverse(String s) {
+		if (s.length() <= 1) return s;
+		else {
+			String t = s.substring(s.length() - 1);
+			String r = s.substring(0, s.length() - 1);
+			return t + reverse(r);
+		}
+	}
+
+	public static int[] merge(int[] a, int[] b) {
+		int length = a.length + b.length;
+		int[] res = new int[length];
+		int aIndex = 0;
+		int bIndex = 0;
+		for (int i = 0; i < length; i++) {
+			if (aIndex >= a.length) {
+				res[i] = b[bIndex++];
+			} else if (bIndex >= b.length) {
+				res[i] = a[aIndex++];
+			} else if (a[aIndex] < b[bIndex]) {
+				res[i] = a[aIndex++];
+			} else {
+				res[i] = b[bIndex++];
+			}
+		}
 		return res;
 	}
 
